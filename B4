@@ -1,0 +1,62 @@
+/* 4.Write a C++ program to create a class ACC with data members, accno,balance. 
+Create objects, namely, ACC1 and ACC2. Write  a member  function  to  transfer 
+amount  from  ACC1  to  ACC2. Display the new balance in the transacted accounts.*/
+
+#include<iostream.h>
+#include<conio.h>
+class acc
+{
+	int no;
+	int bal;
+	public:
+	void get()
+	{  
+	   cout<<"\nEnter the Account Number: ";
+	   cin>>no;
+	   cout<<"\nEnter the Balance: ";
+	   cin>>bal;
+	}
+	void set(int ain)
+	{
+	  no=ain;
+	  bal=0;
+	}
+	void set(int ain,float bin)
+	{
+	   no=ain;
+	   bal=bin;
+	}
+	void display()
+	{
+	   cout<<"\nThe Account Number: "<<no;
+	   cout<<"\nBalance:"<<bal;
+	}
+	void transfer(acc &a,float amt);
+};
+
+void acc::transfer(acc &a,float amt)
+{
+	bal=bal-amt;
+	a.bal=a.bal+amt;
+}
+void main()
+{
+	float amount;
+	acc a1,a2,a3;
+	clrscr();
+	a1.get();
+	a2.set(2);
+	a3.set(3,750.5);
+	cout<<"\nAccount Information________\n";
+	a1.display();
+	a2.display();
+	a3.display();
+	cout<<"\nHow much money is to be transferred from account1 to account2: ";
+	cin>>amount;
+	a1.transfer(a2,amount);
+	cout<<"\nUpdated Account Information________\n";
+	a1.display();
+	a2.display();
+	a3.display();
+	getch();
+}
