@@ -1,0 +1,38 @@
+/* 10.Write  a  C++  program  to  demonstrate the function overloading by overloading 
+the user defined function called ADD with variable type and number of arguments.
+ (Eg. ADD(Int,int), ADD(int, float), ADD(init,int, float) etc.) */
+
+#include<iostream.h>
+#include<conio.h>
+class demo
+{
+public:
+void add(int,int);
+void add(int,double);
+void add(int,float,int);
+};
+void demo::add(int a,int b)
+{int c;
+c=a+b;
+cout<<"\nThe addition of two integers is "<<c;
+}
+void demo::add(int a,double b)
+{double c;
+c=a+b;
+cout<<"\nThe addition of one integer and one double is "<<c;
+}
+void demo::add(int a,float b,int c)
+{float d;
+d=a+b+c;
+cout<<"\nThe addition of two integers and one float is "<<d;
+}
+void main()
+{
+demo d;
+clrscr();
+cout<<"\n\n";
+d.add(10,30);
+d.add(10,30.4);
+d.add(10,20.4,30);
+getch();
+}
