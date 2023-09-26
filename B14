@@ -1,0 +1,35 @@
+/* 14.Write a C++ program to sort a given array of   N numbers using template function.*/
+
+#include<iostream.h>
+#include<conio.h>
+template<class T>
+void s_sort(T a[],int n)
+{
+ int i,j,t;
+ for(i=0;i<n;i++)
+ {
+ for(j=i+1;j<n;j++)
+ {
+ if(a[j]<a[i])
+ {
+ t=a[i];
+ a[i]=a[j];
+ a[j]=t;
+ }
+ }
+ }
+ }
+ void main()
+ { int a[100],i,n;
+ clrscr();
+ cout<<"Enter the number of elements: \n";
+ cin>>n;
+ cout<<"Enter the elements:\n";
+ for(i=0;i<n;i++)
+ cin>>a[i];
+ s_sort(a,n);
+ cout<<"\nAfter Sorting\n";
+ for(i=0;i<n;i++)
+ cout<<a[i]<<" ";
+ getch();
+ }
