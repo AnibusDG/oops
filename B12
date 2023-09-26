@@ -1,0 +1,97 @@
+/* Create a base class RESERVATION. Create the derived classes, namely, ADULT,  SENIOR_CITIZEN, 
+CHILD by multiple inheritance. The RESERVATION class has data members, Name_of_passenger,Age, 
+Date_of_journey, Source,Destination, Ticket_charge. Write an interactive program to display the ticket 
+charges depending upon the category of passenger.
+
+(Note : Charge for Children = ½ of adult ticket charge.
+ Senior citizen = ¼ of adult ticket charge.) */
+
+
+#include<iostream.h>
+#include<conio.h>
+#include<process.h>
+class reserve
+{
+char name[20],s[20],d[20];
+int age,date;
+public:
+float chrg;
+void getdata()
+{
+cout<<"Enter the name of passenger:";
+cin>>name;
+cout<<"\nEnter the source:";
+cin>>s;
+cout<<"Enter the destination:";
+cin>>d;
+cout<<"Enter the age of person:";
+cin>>age;
+cout<<"Enter the date of travel(date)";
+cin>>date;
+cout<<"Enter the ticket charge:";
+cin>>chrg;
+}
+void display()
+{
+cout<<"\nName:"<<name<<"\nSource:"<<s<<"\nDestination:"<<d<<"\nAge:"<<age<<"\nDate of journey:"<<date;
+}
+};
+class adult:public reserve
+{
+public:
+adult()
+{
+getdata();
+display();
+cout<<"\nTicket charge="<<chrg;
+}
+};
+class child:public reserve
+{
+public:
+child()
+{
+getdata();
+display();
+cout<<"\nTicket charge="<<0.5*chrg;
+}
+};
+class snr:public reserve
+{
+public:
+snr()
+{
+getdata();
+display();
+cout<<"\nTicket charge="<<0.25*chrg;
+}
+};
+void main()
+{
+int ch;
+clrscr();
+cout<<"\nPassenger category\n1.Adult\n2.Child\n3.Senior Citizen\n4.Exit";
+while(ch!=4)
+{
+cout<<"\nEnter the choice: ";
+cin>>ch;
+switch(ch)
+{
+case 1:
+adult a;
+break;
+case 2:
+child c;
+break;
+case 3:
+snr s;
+break;
+case 4:
+exit(0);
+break;
+default:
+cout<<"\nEnter a valid choice:";
+}
+}
+getch();
+}
