@@ -1,0 +1,97 @@
+/* 9.Write  a  C++  program  to  create  a  class  called  MATRIX using  a two-dimensional  array 
+ of  integers.  Implement  the  following operations  by  overloading  the  operator  =  =  which  
+checks  the compatibility  of  two  matrices  m1  and  m2  to  be  added  and subtracted. 
+Perform the addition and subtraction by  overloading the operators + and – respectively.
+ Display the results. 
+if  (m1 = = m2)
+{
+m3 = m1 + m2;
+m4 = m1 – m2;
+}  else display  Error message. */
+
+#include<iostream.h>
+#include<conio.h>
+class matrix
+{
+int a[10][10],m,n;
+public:
+void getdata();
+int operator==(matrix);
+matrix operator+(matrix);
+matrix operator-(matrix);
+friend ostream& operator<<(ostream& ,matrix&);
+};
+void matrix::getdata()
+{
+cout<<"Enter the size of the matrx:\n";
+cin>>m>>n;
+cout<<"Enter the elements:\n";
+for(int i=0;i<m;i++)
+for(int j=0;j<n;j++)
+cin>>a[i][j];
+}
+int matrix:: operator==(matrix cm)
+{
+if(m==cm.m&&n==cm.n)
+return 1;
+else
+return 0;
+}
+matrix matrix:: operator+(matrix am)
+{
+matrix temp;
+for(int i=0;i<m;i++)
+{
+for(int j=0;j<n;j++)
+{
+temp.a[i][j]=a[i][j]+am.a[i][j];
+}
+temp.m=m;
+temp.n=n;
+}
+return temp;
+}
+matrix matrix::operator-(matrix sm)
+{
+matrix temp;
+for(int i=0;i<m;i++)
+{
+for(int j=0;j<n;j++)
+{
+temp.a[i][j]=a[i][j]-sm.a[i][j];
+}
+temp.m=m;
+temp.n=n;
+}
+return temp;
+}
+ostream& operator<<(ostream &dout,matrix &d)
+{
+for(int i=0;i<d.m;i++)
+{
+for(int j=0;j<d.n;j++)
+{
+dout<<d.a[i][j];
+cout<<" ";
+}
+cout<<"\n";
+}
+return dout;
+}
+void main()
+{
+matrix m1,m2,m3,m4;
+clrscr();
+m1.getdata();
+m2.getdata();
+if(m1==m2)
+{
+m3=m1+m2;
+m4=m1-m2;
+cout<<"The addition of two matrices: \n"<<m3;
+cout<<"The subtraction of two matrices\n"<<m4;
+}
+else
+cout<<"The two matrices are not compactible\n";
+getch();
+}
