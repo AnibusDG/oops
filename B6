@@ -1,0 +1,51 @@
+/*p.6.	Write a C++ program to sort N numbers using swap as friend function.*/
+
+
+#include<iostream.h>
+#include<conio.h>
+
+class array
+{
+    	int A[100], n;
+	public:
+    	void getarray()
+ 	{
+       		cout << "Enter the number of elements: ";
+		cin >> n;
+		cout << "Enter the numbers: ";
+		for(int i = 0; i < n; i++)
+		cin >> A[i];
+        }
+
+	void displayarray()
+	{
+		for(int i = 0; i < n; i++)
+		cout << A[i] <<" ";
+		cout << endl;
+		getch();
+	}
+
+	friend void swap(array);
+};
+
+void swap(array A)
+{
+	for(int i = 0; i < n-1; i++)
+	for(int j = i+1; j < n; j++)
+	if(A[j]<A[i])
+	{
+		int temp = A[i];
+		A[i] = a[j];
+		A[j] = temp;
+	}
+}
+
+void main()
+{
+    clrscr();
+    array obj;
+    obj.getarray();
+    swap(obj)
+    obj.displyarray();
+    getch();
+}
