@@ -1,0 +1,59 @@
+/* 2.Create a class called, EMPLOYEE containing data members,Empno,
+ Empname,Designation,Basicpay,DA,HRA,Insurance,TAX. Develop the
+ member functions for calculating and displaying the Netsalary 
+(Netsalary=(Basicpay+DA+HRA)-(Insurance+TAX). */
+
+#include<iostream.h>
+#include<conio.h>
+class employee
+{
+	int empno;
+	char empname[20],desg[15];
+	float basic,da,hra,gross,ins,tax,net;
+	public:
+	void read()
+	{
+	   cout<<"\nEnter the employee no.";
+	   cin>>empno;
+	   cout<<"\nEnter the name of employee:";
+	   cin>>empname;
+	   cout<<"\nEnter the designation:";
+	   cin>>des;
+	   cout<<"\nEnter the basicpay:";
+	   cin>>basic;
+	   cout<<"\nEnter the insurance amount";
+	   cin>>ins;
+	}
+	
+	void calculate()
+	{
+	   da=basic*0.52; 		/* 52% of the basic salary */
+	   hra=basic*0.10;		/* 10% of the basic salary */
+	   gross=basic+da+hra;
+	   tax=gross*0.20;		/* 20% of the gross salary */
+	   net=gross-(ins+tax);
+	}
+
+	void display()
+	{
+	   cout<<"\n"<<empno<<"\t"<<empname<<"\t"<<desg<<"\t\t"<<basic<<"\t\t"<<ns<<"\n";
+	}
+};
+void main()
+{
+	employee e[20];
+	int n,i;
+	clrscr();
+	cout<<"Enter the no of employees:";
+	cin>>n;
+	for(i=0;i<n;i++)
+	{
+	   e[i].read();
+	   e[i].calculate();
+	}
+	cout<<"\nEmp No.\tName\tDesignation\tBasic pay\tNet salary\n";
+	cout<<"-------------------------------------------------------\n";
+	for(i=0;i<n;i++)
+	   e[i].display();
+	getch();
+}
