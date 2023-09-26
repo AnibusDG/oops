@@ -1,0 +1,51 @@
+/* 8.Write a C++ program to create a class NAME and implement the following operations.  
+Display the result  after  every  operation  by overloading the <<.
+i) NAME    firstname = “Herbert”
+ii) NAME  lastname = “Schield”
+iii) NAME fullname = firstname +lastname (Use copy constructor) */
+
+#include<iostream.h>
+#include<conio.h>
+#include<string.h>
+class string
+{
+char str[50];
+public:
+string()
+{
+strcpy(str," ");
+}
+string(char *s )
+{
+strcpy(str,s);
+}
+string(string &s)
+{
+strcpy(str,s.str);
+}
+string operator+(string s2)
+{
+strcat(str," ");
+strcat(str,s2.str);
+return *this;
+}
+friend ostream& operator<<(ostream &print,string);
+};
+ostream& operator<<(ostream &print,string s)
+{
+print<<s.str;
+return print;
+}
+void main()
+{
+clrscr();
+string s1="HERBERT";
+string s2(s1);
+cout<<"First string is:"<<s2<<"\n";
+string s3="SHIELD";
+string s4(s3);
+cout<<"The second string is:"<<s4<<"\n";
+string s5=s1+s3;
+cout<<"Sum of two strings is:"<<s5<<"\n";
+getch();
+}
