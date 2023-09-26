@@ -1,0 +1,39 @@
+/* 3. Write a C++ program to create class DATE. Display age of the person 
+by considering date of birth and current date using inline function.*/
+
+#include<iostream.h>
+#include<conio.h>
+
+class date
+{
+	int by,cy,age;
+	public:
+	void get()
+	{
+	   cout<<"Enter the birth Year: ";
+	   cin>>by;
+	   cout<<"Enter the current Year: ";
+	   cin>>cy;
+	}
+	inline void calculate()
+	{
+	   age=(cy-by);
+	}
+	void display()
+	{
+	   if(cy<by)
+	     cout<<"Invalid DOB!!!!\n";
+	   else
+	     cout<<"The age of the person is "<<age;
+	}
+};
+
+void main()
+{
+	date d;
+	clrscr();
+	d.get();
+	d.calculate();
+	d.display();
+	getch();
+}
