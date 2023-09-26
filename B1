@@ -1,0 +1,91 @@
+/* 1.Create a simple class STUDENT containing the data members, roll no,name,age  &  
+display  the  contents  using  user defined functions. Test the program with and without 
+scope resolution operator. */
+/* Execution 1: with scope resolution operator.*/
+
+#include<iostream.h>
+#include<conio.h>
+class student
+{
+	int rno;
+	char name[20];
+	int age;
+	public:
+	void readdata();
+	void display();
+};
+void student::readdata()
+{
+	cout<<"Enter the roll no.:";
+	cin>>rno;
+	cout<<"\nEnter the name:";
+	cin>>name;
+	cout<<"\nEnter the age:";
+	cin>>age;
+	
+}
+
+void student::display()
+{
+	cout<<rno<<"\t"<<name<<"\t"<<age<<"\n";
+}
+void main()
+{
+	student s[10];
+	clrscr();
+	cout<<"Enter how many numbers of students:";
+	cin>>n;
+	for(i=0;i<n;i++)
+	{
+	   s[i].readdata();
+	}
+	
+	cout<<"\nRoll No.\tName\tAge\n";
+	for(i=0;i<n;i++)
+	   s[i].display();
+	getch();
+}
+
+
+/*Execution 2: without scope resolution operator.*/
+
+#include<iostream.h>
+#include<conio.h>
+class student
+{
+	int rno;
+	char name[20];
+	int age;
+	public:
+	void readdata()
+	{
+	   cout<<"Enter the roll no.:";
+	   cin>>rno;
+	   cout<<"\nEnter the name:";
+	   cin>>name;
+	   cout<<"\nEnter the age:";
+	   cin>>age;
+	}
+
+	void display()
+	{
+	   cout<<rno<<"\t"<<name<<"\t"<<age<<"\n";
+	}
+};
+
+void main()
+{
+	student s[10];
+	clrscr();
+	cout<<"Enter how many numbers of students:";
+	cin>>n;
+	for(i=0;i<n;i++)
+	{
+	   s[i].readdata();
+	}
+	
+	cout<<"\nRoll No.\tName\tAge\n";
+	for(i=0;i<n;i++)
+	   s[i].display();
+	getch();
+}
